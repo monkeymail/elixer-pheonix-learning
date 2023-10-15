@@ -440,3 +440,12 @@ Using asdf version manager. Allows for local and global version setting.
 For Ubuntu 23.04 some package names have changed (specifically libwxgtk-webview3.2-dev libwxgtk-webview3.2-dev). use:
 sudo apt-get -y install build-essential autoconf m4 libncurses5-dev libgl1-mesa-dev libglu1-mesa-dev libpng-dev libssh-dev unixodbc-dev xsltproc fop libxml2-utils libncurses-dev openjdk-11-jdk libwxgtk-webview3.2-dev libwxgtk-webview3.2-dev  # erlang dependencies
 
+# New Elixer project
+```
+mix new <name-of-project> && cd <name-of-project>
+
+# test with
+mix test
+
+
+```
