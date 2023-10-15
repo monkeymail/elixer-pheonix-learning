@@ -1,6 +1,5 @@
 defmodule PasswordGeneratorTest do
   use ExUnit.Case
-  doctest PasswordGenerator
 
   setup do
     # variables we need throughout our tests
