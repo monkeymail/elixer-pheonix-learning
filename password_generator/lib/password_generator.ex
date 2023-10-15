@@ -52,6 +52,7 @@ defmodule PasswordGenerator do
   defp validate_length(true, options) do
     numbers = Enum.map(0..9, & Integer.to_string(&1))
     length = options["length"]
+    # Below misses cases such as length = "5a", which is obviously undesired.
     length = String.contains?(length, numbers)
     validate_length_is_integer(length, options)
   end
@@ -115,6 +116,24 @@ defmodule PasswordGenerator do
 
   defp get(:lowercase_letter) do
     <<Enum.random(?a..?z)>>
+  end
+
+  defp get(:uppercase) do
+    <<Enum.random(?A..?Z)>>
+  end
+
+  defp get(:numbers) do
+    Enum.random(0..9)
+    |> Integer.to_string()
+  end
+
+  @symbols "!#$%&()*+,-./:;<=>?@[]^_{|}~"
+  defp get(:symbols) do
+    symbols =
+      @symbols
+      |> String.split("", trim: true)
+
+    Enum.random(symbols)
   end
 
   defp generate_random_strings(length, options) do
